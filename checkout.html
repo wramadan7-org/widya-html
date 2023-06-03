@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Checkout</title>
+  <style>
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    /* input[type=number] {
+      -moz-appearance: textfield;
+    } */
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="bg-white drop-shadow-md">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div class="relative flex h-16 items-center justify-between">
+        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <!-- Mobile menu button-->
+          <button type="button"
+            class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            aria-controls="mobile-menu" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <!--
+              Icon when menu is closed.
+  
+              Menu open: "hidden", Menu closed: "block"
+            -->
+            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            <!--
+              Icon when menu is open.
+  
+              Menu open: "block", Menu closed: "hidden"
+            -->
+            <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+          <!-- <div class="flex flex-shrink-0 items-center">
+            <img class="block h-8 w-auto lg:hidden"
+              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+            <img class="hidden h-8 w-auto lg:block"
+              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+          </div> -->
+
+          <div class="hidden sm:flex flex-row font-bold text-2xl">
+            <div class="text-blue-400">M</div>
+            <div class="text-blue-400">D</div>
+            <div class="text-black">B</div>
+          </div>
+
+          <div class="hidden sm:ml-6 sm:block">
+            <div class="flex space-x-4">
+              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+              <a href="#"
+                class="hover:bg-gray-700 hover:text-white text-black rounded-md px-3 py-2 text-sm font-medium focus:bg-gray-900 focus:text-white">Home</a>
+              <a href="#"
+                class="text-black hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium focus:bg-gray-900 focus:text-white">Checkout</a>
+              <a href="#"
+                class="text-black hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium focus:bg-gray-900 focus:text-white">Kontak</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <button type="button"
+            class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+            <span>Shopping Cart</span>
+          </button>
+
+          <!-- Profile dropdown -->
+          <div class="relative ml-3">
+            <div>
+              <button type="button"
+                class="flex rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                <span>Logout</span>
+              </button>
+            </div>
+
+            <!--
+              Dropdown menu, show/hide based on menu state.
+  
+              Entering: "transition ease-out duration-100"
+                From: "transform opacity-0 scale-95"
+                To: "transform opacity-100 scale-100"
+              Leaving: "transition ease-in duration-75"
+                From: "transform opacity-100 scale-100"
+                To: "transform opacity-0 scale-95"
+            -->
+            <!-- Condition when click profile navbar -->
+            <!-- <div
+              class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+              role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                id="user-menu-item-0">Your Profile</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                id="user-menu-item-1">Settings</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                id="user-menu-item-2">Sign out</a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="sm:hidden" id="mobile-menu">
+      <div class="space-y-1 px-2 pb-3 pt-2">
+        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+        <a href="#"
+          class="hover:bg-gray-900 hover:text-white text-black block rounded-md px-3 py-2 text-base font-medium">Home</a>
+        <a href="#"
+          class="text-black hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Checkout</a>
+        <a href="#"
+          class="text-black hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Kontak</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-5 text-black mb-5">
+    <div class="flex flex-1 flex-col mt-20 gap-y-10">
+      <!-- Title -->
+      <div class="flex items-center justify-center">
+        <span class="text-center text-4xl font-bold">Checkout</span>
+      </div>
+
+      <!-- Form -->
+      <div class="flex flex-row flex-wrap-reverse flex-1 gap-x-5 gap-y-10">
+        <!-- Form left -->
+        <div class="flex flex-1 rounded-md shadow-lg px-3 py-5 border min-w-[400px]">
+          <form class="flex flex-1 flex-col gap-y-5">
+            <div class="flex flex-col">
+              <span class="text-base font-medium text-gray-600">Address</span>
+
+              <input name="address" type="text"
+                class="h-10 flex outline-none bg-white border rounded-md px-2 focus:border-black"
+                placeholder="Address" />
+            </div>
+
+            <div class="flex flex-col">
+              <span class="text-base font-medium text-gray-600">Address 2 (Optional)</span>
+
+              <input name="address_2" type="text"
+                class="h-10 flex outline-none bg-white border rounded-md px-2 focus:border-black"
+                placeholder="Address 2" />
+            </div>
+
+            <div class="flex flex-wrap flex-row gap-x-5 gap-y-3">
+              <div class="flex flex-col">
+                <span class="text-base font-medium text-gray-600">Country</span>
+
+                <input name="country" type="text"
+                  class="h-10 rounded-md flex outline-none bg-white border px-2 focus:border-black"
+                  placeholder="Country" />
+              </div>
+
+              <div class="flex flex-col">
+                <span class="text-base font-medium text-gray-600">Zip</span>
+
+                <input name="zip" type="number"
+                  class="h-10 rounded-md flex outline-none bg-white border px-2 focus:border-black"
+                  placeholder="Country" />
+              </div>
+            </div>
+
+            <div class="h-10 border-t-2 border-b-2 items-center flex flex-row gap-x-3">
+              <input type="checkbox" name="save_information" class="h-4 w-4" />
+
+              <span class="text-sm font-normal">Save this information for next time</span>
+            </div>
+
+            <div class="flex flex-col gap-y-3">
+              <div class="flex flex-row gap-x-1 items-center">
+                <input name="payment_method" type="radio" value="paypal" class="w-4 h-4" />
+
+                <span class="text-base font-normal">Paypal</span>
+              </div>
+
+              <div class="flex flex-row gap-x-1 items-center">
+                <input name="payment_method" type="radio" value="stripe" class="w-4 h-4" />
+
+                <span class="text-base font-normal">Stripe</span>
+              </div>
+            </div>
+
+            <div class="border"></div>
+
+            <button type="submit"
+              class="bg-blue-500 hover:bg-blue-600 flex justify-center items-center h-10 shadow-md rounded-md text-white font-medium">LANJUTKAN
+              CHECKOUT</button>
+          </form>
+        </div>
+
+        <!-- List price -->
+        <div class="flex flex-col flex-1 md:w-96 px-3 gap-y-5">
+          <div class="flex flex-row justify-between items-center">
+            <span class="text-2xl font-medium text-black">Keranjang Belanja</span>
+
+            <span
+              class="h-7 w-7 flex items-center justify-center bg-blue-100 text-blue-600 font-medium rounded-full">4</span>
+          </div>
+
+          <div class="border rounded-md space-y-4">
+            <div class="border-b-2">
+              <div class="flex flex-row justify-between items-start px-4 py-2">
+                <div class="flex flex-col">
+                  <span class="font-semibold text-lg">2x Baju Denim Biru</span>
+
+                  <span class="text-sm font-normal text-left w-72 truncate">Kemeja denim memiliki tampilan yang casual
+                    dan seadanya</span>
+                </div>
+
+                <span class="text-lg font-medium">$30.0</span>
+              </div>
+            </div>
+
+            <div class="border-b-2">
+              <div class="flex flex-row justify-between items-start px-4 py-2">
+                <div class="flex flex-col">
+                  <span class="font-semibold text-lg">2x Baju Denim Biru</span>
+
+                  <span class="text-sm font-normal text-left w-72 truncate">Kemeja denim memiliki tampilan yang casual
+                    dan seadanya</span>
+                </div>
+
+                <span class="text-lg font-medium">$30.0</span>
+              </div>
+            </div>
+
+            <div class="border-b-2">
+              <div class="flex flex-row justify-between items-start px-4 py-2">
+                <div class="flex flex-col">
+                  <span class="font-semibold text-lg">2x Baju Denim Biru</span>
+
+                  <span class="text-sm font-normal text-left w-72 truncate">Kemeja denim memiliki tampilan yang casual
+                    dan seadanya</span>
+                </div>
+
+                <span class="text-lg font-medium">$30.0</span>
+              </div>
+            </div>
+
+            <div class="border-b-2">
+              <div class="flex flex-row justify-between items-start px-4 py-2">
+                <div class="flex flex-col">
+                  <span class="font-semibold text-lg">2x Baju Denim Biru</span>
+
+                  <span class="text-sm font-normal text-left w-72 truncate">Kemeja denim memiliki tampilan yang casual
+                    dan seadanya</span>
+                </div>
+
+                <span class="text-lg font-medium">$30.0</span>
+              </div>
+            </div>
+
+            <div class="flex flex-row justify-between items-center px-4 py-2 pb-2">
+              <div class="flex flex-col">
+                <span class="font-semibold text-lg">Total ($USD)</span>
+              </div>
+
+              <span class="text-lg font-bold text-green-600">$88.0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
